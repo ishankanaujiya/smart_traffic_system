@@ -1,0 +1,64 @@
+# C and Visual Studio Code specific ignores
+.vscode/
+.vscode-server/
+.vscode-test/
+*.cproject
+*.project
+*.settings/
+.cquery
+compile_commands.json
+
+# CMake build directory
+build/
+
+# Compiled object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Visual Studio Code workspace settings
+.code-workspace
+
+# Dependency files
+CMakeLists.txt.user
+*.suo
+*.sdf
+*.opensdf
+*.sln
+*.dsw
+*.db
+*.db-shm
+*.db-wal
+*.user
+*.suo
+*.userosscache
+*.scc
+
+# Language-specific outputs
+*.sconsign.dblite
+.sconsign.py
+.sconsign.pyc
+.sconsign.sconsign.db*
+*.ilk
+*.pdb
+
+# Qt Creator
+*~.swp
+
+#files
+*.DAT
+*.txt
