@@ -3,6 +3,7 @@
 # include"function.h"
 # include"chrono"
 # include"thread"
+# include"authentication.h"
 
 
 //Class Object
@@ -10,7 +11,7 @@ Traffic_Police_Entry Traffic_Entry_Obj;
 
 //Variables
 int i=0;
-int choice_for_first_login;
+int choice_for_first_login, choice_for_admin_entry;
 char ch_for_loading = 219;
 
 void main_call()
@@ -45,7 +46,8 @@ void switch_case_for_entry()
         break;
 
         case 2:
-            cout << endl << "Case 2";
+            switch_case_for_admin_entry();
+            //cout << endl << "Case 2";
         break;
 
         default:
@@ -70,4 +72,30 @@ void loading_page()
         cout<< ch_for_loading;
     }
     system("COLOR 07");
+}
+
+void switch_case_for_admin_entry()
+{
+    flag_for_admin_entry:
+    cout << endl << "1. Login" << endl << "2. Register";
+    cout << endl << "Enter Your Choice: ";
+    cin >> choice_for_admin_entry;
+    switch (choice_for_admin_entry)
+    {
+    case 1:
+        cin.ignore();
+        authentication_login();
+        break;
+    case 2:
+        cin.ignore();
+        authentication_registration();
+        goto flag_for_admin_entry;
+        break;
+        
+    default:
+        cout << endl << "Wrong Choice..... Please Enter Your Choice Again";
+        goto flag_for_admin_entry;
+        break;
+    }
+
 }
