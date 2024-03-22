@@ -46,8 +46,8 @@ void authentication_login()
     }
     else
     {
-        cout << endl << endl << endl << endl << endl << endl << endl << endl << endl;
-        cout << endl << "LOGIN";
+        cout << endl;
+        cout << endl << "LOGIN" << endl;
         login_obj.get_login_value();
         return_value_for_correct_login = login_check(login_obj,registration_detail_contained_obj);
         if(return_value_for_correct_login == 6)

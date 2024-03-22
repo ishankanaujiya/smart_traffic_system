@@ -1,6 +1,7 @@
 #ifndef CLASS_H 
 #define CLASS_H
 #include <iostream>
+# include"conio.h"
 # include"stdlib.h"
 # include"function.h"
 # include"chrono"
@@ -60,6 +61,8 @@ class Authentication_Login
     private:
         char username[100];
         char password[100];
+        
+    
     public:
         void get_login_value()
         {
@@ -69,7 +72,38 @@ class Authentication_Login
             cin.get(username,100);
             cin.ignore();
             cout << "Password: ";
-            cin.get(password,100);
+            //cin.get(password,100);
+            char ch1;
+            int i=0;
+            while (1)
+            {
+                ch1 = _getch();
+                if(ch1 == 13)
+                {
+                    password[i] = '\0';
+                    break;
+                }
+                else if(ch1 == 8)
+                {
+                    if (i > 0)
+                    {
+                        i--;
+                        printf("\b \b");
+                    }
+                }
+                else if(ch1 == 9 || ch1 == 32)
+                {
+                    continue;
+                }
+                else
+                {
+                    cout << "*";
+                    password[i] = ch1;
+                    //cout << "*";
+                    i++;
+                }
+		
+	        }
         }
         friend int login_check(Authentication_Login,Authentication_Registration[]);
 };
