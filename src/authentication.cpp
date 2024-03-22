@@ -36,7 +36,9 @@ void authentication_login()
         file_for_registration_check.close();
     }
 
+
     //Login
+
     file_for_login.open("resource/login_details.dat", ios::in | ios::binary);
     if(!file_for_login)
     {
@@ -44,6 +46,8 @@ void authentication_login()
     }
     else
     {
+        cout << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+        cout << endl << "LOGIN";
         login_obj.get_login_value();
         return_value_for_correct_login = login_check(login_obj,registration_detail_contained_obj);
         if(return_value_for_correct_login == 6)

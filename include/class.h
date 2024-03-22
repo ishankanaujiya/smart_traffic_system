@@ -37,7 +37,7 @@ class Traffic_Police_Entry
                 if(count_for_wrong_pin == 0)
                 {
                     cout << endl << "SUSPICIOUS ACT";
-                    this_thread::sleep_for(chrono::milliseconds(400));
+                    this_thread::sleep_for(chrono::milliseconds(1000));
                     exit(0);
                 }
                 if(count_for_wrong_pin<=3)
@@ -47,7 +47,7 @@ class Traffic_Police_Entry
 
                 }
                 
-                this_thread::sleep_for(chrono::milliseconds(1000));
+                this_thread::sleep_for(chrono::milliseconds(2000));
                 system("cls");
                 get_pin_number();
             }
@@ -63,11 +63,12 @@ class Authentication_Login
     public:
         void get_login_value()
         {
-            cin.ignore();
-            cout << "Enter Username: ";
+            fflush(stdin);
+            //cin.ignore();
+            cout << "Username: ";
             cin.get(username,100);
             cin.ignore();
-            cout << "Enter Password: ";
+            cout << "Password: ";
             cin.get(password,100);
         }
         friend int login_check(Authentication_Login,Authentication_Registration[]);

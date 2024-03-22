@@ -1,4 +1,5 @@
 # include"iostream"
+# include"stdlib.h"
 # include"class.h"
 # include"function.h"
 # include"chrono"
@@ -34,20 +35,23 @@ void switch_case_for_entry()
 {
     flag_for_first_switch_case:
     system("cls");
-    cout << endl << "1. Traffic Police" << endl << "2. Admin";
+    cout << endl << "1. Traffic Police" << endl << "2. Admin" << endl << "3. Exit";
     cout << endl << "Enter Your Choice: ";
     cin >> choice_for_first_login;
 
     switch (choice_for_first_login)
     {
         case 1:
-            
             call_traffic_police_entry_obj();
         break;
 
         case 2:
             switch_case_for_admin_entry();
             //cout << endl << "Case 2";
+        break;
+
+        case 3:
+            exit(0);
         break;
 
         default:
@@ -77,23 +81,30 @@ void loading_page()
 void switch_case_for_admin_entry()
 {
     flag_for_admin_entry:
-    cout << endl << "1. Login" << endl << "2. Register";
+    system("cls");
+    cout << endl << "1. Login" << endl << "2. Register" << endl << "3. Main Menu";
     cout << endl << "Enter Your Choice: ";
     cin >> choice_for_admin_entry;
     switch (choice_for_admin_entry)
     {
     case 1:
         cin.ignore();
+        system("cls");
         authentication_login();
+        goto flag_for_admin_entry;
         break;
     case 2:
         cin.ignore();
+        system("cls");
         authentication_registration();
         goto flag_for_admin_entry;
         break;
-        
+    case 3:
+        switch_case_for_entry();
+        break;
     default:
         cout << endl << "Wrong Choice..... Please Enter Your Choice Again";
+        this_thread::sleep_for(chrono::milliseconds(1000));
         goto flag_for_admin_entry;
         break;
     }
