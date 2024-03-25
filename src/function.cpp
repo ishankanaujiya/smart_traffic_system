@@ -91,7 +91,7 @@ void switch_case_for_admin_entry()
         cin.ignore();
         system("cls");
         authentication_login();
-        goto flag_for_admin_entry;
+        //goto flag_for_admin_entry;
         break;
     case 2:
         cin.ignore();

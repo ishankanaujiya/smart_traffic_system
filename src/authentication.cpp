@@ -1,6 +1,7 @@
 # include"iostream"
 # include"authentication.h"
 # include"../include/class.h"
+# include"../include/function.h"
 # include"fstream"
 # include"cstring"
 using namespace std;
@@ -52,6 +53,7 @@ void authentication_login()
         return_value_for_correct_login = login_check(login_obj,registration_detail_contained_obj);
         if(return_value_for_correct_login == 6)
         {
+            loading_page();
             cout << endl << "Entered Successfully";
         }
         else

@@ -135,11 +135,13 @@ class Authentication_Registration
             cin.ignore();
             system("cls");
             display_rules();
-            cout <<endl << "Username: ";
+            cout <<endl << endl << "Username: ";
             cin.get(username,100);
             flag_for_password:
+            system("cls");
+            display_rules();
             cin.ignore();
-            cout <<endl << "Password: ";
+            cout <<endl << endl << "Password: ";
             cin.get(password,100);
 
             //Strong Password
@@ -151,11 +153,13 @@ class Authentication_Registration
             if(password_check_len<=6)
             {
                 cout << endl << "The Password is too short.... Please Enrter the Password Again";
+                this_thread::sleep_for(chrono::milliseconds(2000));
                 goto flag_for_password;
             }
             if(password_check_len>=15)
             {
                 cout << endl << "The Password is too long.... Please Entrer the Password Again";
+                this_thread::sleep_for(chrono::milliseconds(2000));
                 goto flag_for_password;
             }
             for(int i=0; password_check[i]!='\0'; i++)
@@ -168,18 +172,21 @@ class Authentication_Registration
                 {
                     count_for_alphabet_check++;
                 }
-                if(password_check[i] == '@' ||password_check[i] == '@' ||password_check[i] == '@' ||password_check[i] == '@')
+                if(password_check[i] == '@' ||password_check[i] == '#' ||password_check[i] == '$' ||password_check[i] == '&')
                 {
                     count_for_symbol_check++;
                 }
             }
             if(count_for_numbers_check>0 && count_for_alphabet_check>0 && count_for_symbol_check>0)
             {
-                cout << endl << "The Entered Password is Strong";
+                cout << endl << "Account Registered Successfully";
+                system("pause");
+            
             }
             else
             {
-                cout << endl << "The Entered Password is Strong.... Please Enter the Password";
+                cout << endl << "The Entered Password is Not Strong.... Please Enter the Password";
+                this_thread::sleep_for(chrono::milliseconds(2000));
                 goto flag_for_password;
             }
             
