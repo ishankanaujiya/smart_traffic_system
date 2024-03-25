@@ -3,6 +3,7 @@
 #include <iostream>
 # include"conio.h"
 # include"stdlib.h"
+# include"cstring"
 # include"function.h"
 # include"chrono"
 # include"thread"
@@ -132,15 +133,72 @@ class Authentication_Registration
             cout <<endl << "Phone Number: ";
             cin >> phone_number;
             cin.ignore();
+            system("cls");
+            display_rules();
             cout <<endl << "Username: ";
             cin.get(username,100);
-            cin.ignore();cout <<endl << "Password: ";
+            flag_for_password:
+            cin.ignore();
+            cout <<endl << "Password: ";
             cin.get(password,100);
+
+            //Strong Password
+            int count_for_numbers_check = 0, count_for_alphabet_check = 0, count_for_symbol_check = 0;
+            char password_check[100];
+            strcpy(password_check, password);
+            int password_check_len = strlen(password_check);
+
+            if(password_check_len<=6)
+            {
+                cout << endl << "The Password is too short.... Please Enrter the Password Again";
+                goto flag_for_password;
+            }
+            if(password_check_len>=15)
+            {
+                cout << endl << "The Password is too long.... Please Entrer the Password Again";
+                goto flag_for_password;
+            }
+            for(int i=0; password_check[i]!='\0'; i++)
+            {
+                if(password_check[i]>=48 && password_check[i]<=57)
+                {
+                    count_for_numbers_check++;
+                }
+                if(password_check[i]>='A' && password_check[i]<='Z')
+                {
+                    count_for_alphabet_check++;
+                }
+                if(password_check[i] == '@' ||password_check[i] == '@' ||password_check[i] == '@' ||password_check[i] == '@')
+                {
+                    count_for_symbol_check++;
+                }
+            }
+            if(count_for_numbers_check>0 && count_for_alphabet_check>0 && count_for_symbol_check>0)
+            {
+                cout << endl << "The Entered Password is Strong";
+            }
+            else
+            {
+                cout << endl << "The Entered Password is Strong.... Please Enter the Password";
+                goto flag_for_password;
+            }
+            
         }
         void displayValue()
         {
             cout <<endl << "Username: " << username << "Password: " << password;
         }
+
+        void display_rules()
+        {
+            cout << endl << " Password Must Contain: ";
+            cout << endl << " 1. Minimum 6 Letters and Maximum 15 Letters";
+            cout << endl << " 2. Must Contain atleast One Digit/Number ";
+            cout << endl << " 3. Must Contain any of the Symbols '@' , '#' , '$' , '&' ";
+            cout << endl << " 4. Must Contain atleast One Capital Letter";
+
+        }
+
         friend int login_check(Authentication_Login,Authentication_Registration[]);
 
 };
