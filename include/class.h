@@ -134,7 +134,6 @@ class Authentication_Registration
             cin >> phone_number;
             cin.ignore();
             system("cls");
-            display_rules();
             cout <<endl << endl << "Username: ";
             cin.get(username,100);
             flag_for_password:
@@ -179,7 +178,7 @@ class Authentication_Registration
             }
             if(count_for_numbers_check>0 && count_for_alphabet_check>0 && count_for_symbol_check>0)
             {
-                cout << endl << "Account Registered Successfully";
+                cout << endl << "Account Registered Successfully" << endl;
                 system("pause");
             
             }

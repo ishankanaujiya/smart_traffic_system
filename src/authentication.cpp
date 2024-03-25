@@ -16,7 +16,7 @@ Authentication_Registration registration_obj, registration_detail_contained_obj[
 int return_value_for_correct_login;
 
 
-void authentication_login()
+int authentication_login()
 {
     fstream file_for_login;
     fstream file_for_registration_check;
@@ -55,10 +55,12 @@ void authentication_login()
         {
             loading_page();
             cout << endl << "Entered Successfully";
+            
         }
         else
         {
             cout << endl << "Wrong Password";
+            return 1;
         }
         file_for_login.close();
     

@@ -11,7 +11,7 @@
 Traffic_Police_Entry Traffic_Entry_Obj;
 
 //Variables
-int i=0;
+int i=0, return_value_for_login = 0;
 int choice_for_first_login, choice_for_admin_entry;
 char ch_for_loading = 219;
 
@@ -90,8 +90,11 @@ void switch_case_for_admin_entry()
     case 1:
         cin.ignore();
         system("cls");
-        authentication_login();
-        //goto flag_for_admin_entry;
+        return_value_for_login = authentication_login();
+        if(return_value_for_login ==1)
+        {
+            goto flag_for_admin_entry;
+        }
         break;
     case 2:
         cin.ignore();
