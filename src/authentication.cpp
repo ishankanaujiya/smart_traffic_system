@@ -54,6 +54,7 @@ int authentication_login()
         if(return_value_for_correct_login == 6)
         {
             loading_page();
+            system("cls");
             cout << endl << "Entered Successfully";
             
         }
@@ -66,7 +67,9 @@ int authentication_login()
     
         fflush(stdin);
         getchar();
+        
     }
+    return 0;
 }
 
 
@@ -100,5 +103,5 @@ int login_check(Authentication_Login authentication_login_check, Authentication_
         }
     
     }
-
+    return 0;
 }
