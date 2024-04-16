@@ -4,13 +4,15 @@
 # include"../include/function.h"
 # include"fstream"
 # include"cstring"
+# include"chrono"
+# include"thread"
 using namespace std;
 
 
 
 //Class Object
 Authentication_Login login_obj;
-Authentication_Registration registration_obj, registration_detail_contained_obj[100];
+Authentication_Registration registration_obj, registration_detail_contained_obj[100], registration_detail_contained_obj_for_check;
 
 //Variable
 int return_value_for_correct_login;
@@ -61,6 +63,7 @@ int authentication_login()
         else
         {
             cout << endl << "Wrong Password";
+            this_thread::sleep_for(chrono::seconds(4));
             return 1;
         }
         file_for_login.close();
@@ -76,6 +79,32 @@ int authentication_login()
 void authentication_registration()
 {
     fstream file_for_registration;
+    fstream file_for_registration_check;
+    int count_for_total_registration = 0;
+
+    //Read the File to check total number of registration
+    file_for_registration_check.open("resource/login_details.dat", ios::in | ios::binary);
+    if(!file_for_registration_check)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        while(file_for_registration_check.read((char *)&registration_detail_contained_obj_for_check, sizeof(registration_detail_contained_obj_for_check)))
+        {
+            count_for_total_registration++;
+        }
+        if(count_for_total_registration>1)
+        {
+            cout << endl << "Registration for only 2 provience is accepted";
+            this_thread::sleep_for(chrono::seconds(4));
+            exit(0);
+        }
+       
+        file_for_registration_check.close();
+    }
+
+    
     file_for_registration.open("resource/login_details.dat", ios::app | ios::binary);
     if(!file_for_registration)
     {
@@ -84,6 +113,7 @@ void authentication_registration()
     else
     {
         registration_obj.get_registration_value();
+        
         file_for_registration.write((char *)&registration_obj,sizeof(registration_obj));
         file_for_registration.close();
     }

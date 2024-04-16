@@ -113,7 +113,7 @@ class Authentication_Registration
 {
     private:
         char name[100];
-        char provience_name[100];
+        int provience_number;
         char address[100];
         int phone_number;
         char username[100];
@@ -124,8 +124,15 @@ class Authentication_Registration
             cout <<endl << "Name: ";
             cin.get(name,100);
             cin.ignore();
-            cout <<endl << "Provience Name: ";
-            cin.get(provience_name,100);
+            flag_for_provience_number:
+            cout <<endl << "Provience Number: ";
+            cin >> provience_number;
+            if(provience_number<=0 || provience_number>7)
+            {
+                cout << endl << "Enter from 1 to 7";
+                goto flag_for_provience_number;
+                
+            }
             cin.ignore();
             cout <<endl << "Address: ";
             cin.get(address,100);
