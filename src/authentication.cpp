@@ -104,7 +104,7 @@ void authentication_registration()
         file_for_registration_check.close();
     }
 
-    
+    //Write the Registration Detail
     file_for_registration.open("resource/login_details.dat", ios::app | ios::binary);
     if(!file_for_registration)
     {
