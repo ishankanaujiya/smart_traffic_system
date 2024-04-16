@@ -96,7 +96,7 @@ void authentication_registration()
         }
         if(count_for_total_registration>6)
         {
-            cout << endl << "Registration for only 2 provience is accepted";
+            cout << endl << "Registration for only 7 provience is accepted";
             this_thread::sleep_for(chrono::seconds(4));
             exit(0);
         }
