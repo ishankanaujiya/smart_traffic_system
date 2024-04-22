@@ -125,19 +125,19 @@ class Authentication_Registration
             cin.get(name,100);
             cin.ignore();
             flag_for_provience_number:
-            cout <<endl << "Provience Number: ";
+            cout <<endl << "Province Number: ";
             cin >> provience_number;
             if(provience_number<=0 || provience_number>7)
             {
-                cout << endl << "Enter from 1 to 7";
+                cout << endl << "Enter Province Number from 1 to 7";
                 goto flag_for_provience_number;
                 
             }
             cin.ignore();
-            cout <<endl << "Address of Headquater: ";
+            cout <<endl << "Headquarter's Address: ";
             cin.get(address,100);
             cin.ignore();
-            cout <<endl << "Phone Number: ";
+            cout <<endl << "Headquarter's Contact Number: ";
             cin >> phone_number;
             cin.ignore();
             system("cls");
