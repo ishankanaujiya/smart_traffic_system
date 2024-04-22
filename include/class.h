@@ -213,6 +213,7 @@ class Authentication_Registration
         }
 
         friend int login_check(Authentication_Login,Authentication_Registration[]);
+        friend int allow_registration_after_provience_check(Authentication_Registration, Authentication_Registration[]);
 
 };
 #endif

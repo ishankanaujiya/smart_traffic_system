@@ -13,9 +13,11 @@ using namespace std;
 //Class Object
 Authentication_Login login_obj;
 Authentication_Registration registration_obj, registration_detail_contained_obj[100], registration_detail_contained_obj_for_check;
+Authentication_Registration registration_obj_for_provience_check[100];
 
 //Variable
 int return_value_for_correct_login;
+int return_value_to_allow_registration;
 
 
 int authentication_login()
@@ -52,6 +54,8 @@ int authentication_login()
         cout << endl;
         cout << endl << "LOGIN" << endl;
         login_obj.get_login_value();
+
+        //Call for Friend Function
         return_value_for_correct_login = login_check(login_obj,registration_detail_contained_obj);
         if(return_value_for_correct_login == 6)
         {
@@ -90,6 +94,7 @@ void authentication_registration()
     }
     else
     {
+        file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
         while(file_for_registration_check.read((char *)&registration_detail_contained_obj_for_check, sizeof(registration_detail_contained_obj_for_check)))
         {
             count_for_total_registration++;
@@ -100,7 +105,9 @@ void authentication_registration()
             this_thread::sleep_for(chrono::seconds(4));
             exit(0);
         }
-       
+
+        //Read the Objects from the file for Provience Number Check
+        file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
         file_for_registration_check.close();
     }
 
@@ -114,7 +121,19 @@ void authentication_registration()
     {
         registration_obj.get_registration_value();
         
-        file_for_registration.write((char *)&registration_obj,sizeof(registration_obj));
+        //Call for Friend Function
+        return_value_to_allow_registration = allow_registration_after_provience_check(registration_obj,registration_obj_for_provience_check);
+        if(return_value_to_allow_registration == 6)
+        {
+            cout << endl << "Detail of This Provience Already Exist";
+            system("pause");
+
+        }
+        else
+        {
+            file_for_registration.write((char *)&registration_obj,sizeof(registration_obj));
+        }
+
         file_for_registration.close();
     }
 }
@@ -132,6 +151,29 @@ int login_check(Authentication_Login authentication_login_check, Authentication_
             }
         }
     
+    }
+    return 0;
+}
+
+int allow_registration_after_provience_check(Authentication_Registration registration_approval_obj, Authentication_Registration registration_obj_to_check_provience_number[])
+{
+    int i=0;
+    cout << endl << registration_approval_obj.provience_number << endl;
+    /*registration_obj_to_check_provience_number[0].displayValue();
+    registration_obj_for_provience_check[1].displayValue();
+    cout << endl << registration_obj_to_check_provience_number[2].provience_number << endl;
+    cout << endl << registration_obj_to_check_provience_number[1].provience_number << endl;
+    cout << endl << registration_obj_to_check_provience_number[0].provience_number << endl;*/
+
+    system("pause");
+    for(i=0; i<100; i++)
+    {
+        if(registration_approval_obj.provience_number == registration_obj_to_check_provience_number[i].provience_number)        
+        {
+            //cout << endl << registration_obj_to_check_provience_number[i].provience_number;
+            //system("pause"); 
+            return 6;
+        }
     }
     return 0;
 }
