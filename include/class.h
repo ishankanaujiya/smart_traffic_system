@@ -121,7 +121,7 @@ class Authentication_Registration
     public:
         void get_registration_value()
         {
-            cout <<endl << "Name: ";
+            cout <<endl << "District Name: ";
             cin.get(name,100);
             cin.ignore();
             flag_for_provience_number:
@@ -134,7 +134,7 @@ class Authentication_Registration
                 
             }
             cin.ignore();
-            cout <<endl << "Address: ";
+            cout <<endl << "Address of Headquater: ";
             cin.get(address,100);
             cin.ignore();
             cout <<endl << "Phone Number: ";
