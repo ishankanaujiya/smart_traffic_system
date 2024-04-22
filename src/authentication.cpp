@@ -84,6 +84,7 @@ void authentication_registration()
 {
     fstream file_for_registration;
     fstream file_for_registration_check;
+    fstream file_for_registration_approval;
     int count_for_total_registration = 0;
 
     //Read the File to check total number of registration
@@ -94,12 +95,12 @@ void authentication_registration()
     }
     else
     {
-        file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
+       // file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
         while(file_for_registration_check.read((char *)&registration_detail_contained_obj_for_check, sizeof(registration_detail_contained_obj_for_check)))
         {
             count_for_total_registration++;
         }
-        if(count_for_total_registration>6)
+        if(count_for_total_registration>1)
         {
             cout << endl << "Registration for only 7 provience is accepted";
             this_thread::sleep_for(chrono::seconds(4));
@@ -107,10 +108,23 @@ void authentication_registration()
         }
 
         //Read the Objects from the file for Provience Number Check
-        file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
+        //file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
         file_for_registration_check.close();
     }
 
+    //Read the File for Registration Approval
+    file_for_registration_approval.open("resource/login_details.dat", ios::in | ios::binary);
+    if(!file_for_registration_approval)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        file_for_registration_approval.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
+        //Read the Objects from the file for Provience Number Check
+       // file_for_registration_check.read((char *)&registration_obj_for_provience_check,sizeof(registration_obj_for_provience_check));
+        file_for_registration_approval.close();
+    }
     //Write the Registration Detail
     file_for_registration.open("resource/login_details.dat", ios::app | ios::binary);
     if(!file_for_registration)
@@ -131,6 +145,7 @@ void authentication_registration()
         }
         else
         {
+            cout << endl << "Successful";
             file_for_registration.write((char *)&registration_obj,sizeof(registration_obj));
         }
 
@@ -158,7 +173,7 @@ int login_check(Authentication_Login authentication_login_check, Authentication_
 int allow_registration_after_provience_check(Authentication_Registration registration_approval_obj, Authentication_Registration registration_obj_to_check_provience_number[])
 {
     int i=0;
-    cout << endl << registration_approval_obj.provience_number << endl;
+    //cout << endl << registration_approval_obj.provience_number << endl;
     /*registration_obj_to_check_provience_number[0].displayValue();
     registration_obj_for_provience_check[1].displayValue();
     cout << endl << registration_obj_to_check_provience_number[2].provience_number << endl;
