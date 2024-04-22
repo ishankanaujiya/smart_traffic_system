@@ -100,7 +100,7 @@ void authentication_registration()
         {
             count_for_total_registration++;
         }
-        if(count_for_total_registration>1)
+        if(count_for_total_registration>6)
         {
             cout << endl << "Registration for only 7 provience is accepted";
             this_thread::sleep_for(chrono::seconds(4));
@@ -137,12 +137,15 @@ void authentication_registration()
         return_value_to_allow_registration = allow_registration_after_provience_check(registration_obj,registration_obj_for_provience_check);
         if(return_value_to_allow_registration == 6)
         {
-            cout << endl << "Detail of This Provience Already Exist";
+            system("cls");
+            cout << endl << "The Detail of This Province is Already Registered" << endl;
             system("pause");
-
         }
         else
         {
+            system("cls");
+            cout << endl << "Account Registered Successfully" << endl;
+            system("pause");
             file_for_registration.write((char *)&registration_obj,sizeof(registration_obj));
         }
 

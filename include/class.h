@@ -186,7 +186,7 @@ class Authentication_Registration
             if(count_for_numbers_check>0 && count_for_alphabet_check>0 && count_for_symbol_check>0)
             {
                 cout << endl << "Account Registered Successfully" << endl;
-                system("pause");
+                //system("pause");
             
             }
             else
