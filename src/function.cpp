@@ -14,6 +14,7 @@ Traffic_Police_Entry Traffic_Entry_Obj;
 //Variables
 int i=0, return_value_for_login = 0;
 int choice_for_first_login, choice_for_admin_entry, choice_for_traffic_police_entry;
+int return_value_to_check_vehicle_number;
 char ch_for_loading = 219;
 
 void main_call()
@@ -125,8 +126,13 @@ void switch_case_for_traffic_police()
     switch (choice_for_traffic_police_entry)
     {
     case 1:
-        add_vehicle_record();
-        system("pause");
+        return_value_to_check_vehicle_number = add_vehicle_record();
+        if(return_value_to_check_vehicle_number == 6)
+        {
+            cout << endl << "Delatils of this Vehicle Number Exists";
+            this_thread::sleep_for(chrono::seconds(4));
+            goto flag_for_traffic_police_entry;
+        }
         goto flag_for_traffic_police_entry;
         break;
 

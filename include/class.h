@@ -246,5 +246,6 @@ class Vehicle_Detail
             cin.ignore();
         }
         friend void search_vehicle_record(Vehicle_Detail[]);
+        friend int vehicle_number_check(Vehicle_Detail, Vehicle_Detail[]);
 };
 #endif
