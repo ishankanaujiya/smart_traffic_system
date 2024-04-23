@@ -31,7 +31,8 @@ class Traffic_Police_Entry
                 //Function Call
                 loading_page();
                 system("cls");
-                cout << endl << "Entered Successfully";
+                switch_case_for_traffic_police();
+                //cout << endl << "Entered Successfully";
             }
             else
             {
@@ -215,5 +216,35 @@ class Authentication_Registration
         friend int login_check(Authentication_Login,Authentication_Registration[]);
         friend int allow_registration_after_provience_check(Authentication_Registration, Authentication_Registration[]);
 
+};
+
+class Vehicle_Detail
+{
+    private:
+        int vehicle_number;
+        int vehicle_type;
+        char name[100];
+        long long int phone_number;
+        char address[100];
+    public:
+        void getValue()
+        {
+            cout << endl << "Vehicle Number: ";
+            cin >> vehicle_number;
+            cin.ignore();
+            cout << endl << "Vehicle Type: ";
+            cin >> vehicle_type;
+            cin.ignore();
+            cout << endl << "Owners Name: ";
+            cin.get(name,100);
+            cin.ignore();
+            cout << endl << "Phone Number: ";
+            cin >> phone_number;
+            cin.ignore();
+            cout << endl << "Address: ";
+            cin.get(address,100);
+            cin.ignore();
+        }
+        friend void search_vehicle_record(Vehicle_Detail[]);
 };
 #endif

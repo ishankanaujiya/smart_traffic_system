@@ -5,6 +5,7 @@
 # include"chrono"
 # include"thread"
 # include"authentication.h"
+# include"../include/entry.h"
 
 
 //Class Object
@@ -12,7 +13,7 @@ Traffic_Police_Entry Traffic_Entry_Obj;
 
 //Variables
 int i=0, return_value_for_login = 0;
-int choice_for_first_login, choice_for_admin_entry;
+int choice_for_first_login, choice_for_admin_entry, choice_for_traffic_police_entry;
 char ch_for_loading = 219;
 
 void main_call()
@@ -110,6 +111,40 @@ void switch_case_for_admin_entry()
         this_thread::sleep_for(chrono::milliseconds(1000));
         goto flag_for_admin_entry;
         break;
+    }
+
+}
+
+void switch_case_for_traffic_police()
+{
+    flag_for_traffic_police_entry:
+    cout << endl << "1. Add Vehicle Record" << endl << "2. Search Vehicle Record" << endl << "3. Helpline Numbers" << endl << "4. Exit";
+    cout << endl << "Enter Your Choice: ";
+    cin >> choice_for_traffic_police_entry;
+
+    switch (choice_for_traffic_police_entry)
+    {
+    case 1:
+        add_vehicle_record();
+        system("pause");
+        goto flag_for_traffic_police_entry;
+        break;
+
+    case 2:
+        search_vehicle_record();
+        goto flag_for_traffic_police_entry;
+        break;
+
+    case 3:
+
+    break;
+    case 4:
+
+    break;
+    
+    default:
+        cout << endl << "Wrong Choice..... Please Enter The Choice Again";
+        goto flag_for_traffic_police_entry;
     }
 
 }
