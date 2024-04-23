@@ -139,8 +139,8 @@ void switch_case_for_traffic_police()
 
     break;
     case 4:
-
-    break;
+        exit(0);
+        break;
     
     default:
         cout << endl << "Wrong Choice..... Please Enter The Choice Again";

@@ -55,7 +55,7 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
         if(vehicle_number_check == map_search_for_vehicle_record_obj[i].vehicle_number)
         {
             system("cls");
-            cout << endl << "Vehicle Number\t    Vehicle Type\t    Owner's Name\t    Phone Number\t    Address: ";
+            cout << endl << "Vehicle Number\t    Vehicle Type\t    Owner's Name\t        Phone Number\t    Address: ";
             cout << endl << map_search_for_vehicle_record_obj[i].vehicle_number;
             cout << "\t\t     " << map_search_for_vehicle_record_obj[i].vehicle_type;
             cout << "\t\t\t     " << map_search_for_vehicle_record_obj[i].name;
