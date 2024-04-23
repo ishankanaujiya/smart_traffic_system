@@ -126,18 +126,23 @@ void switch_case_for_traffic_police()
     switch (choice_for_traffic_police_entry)
     {
     case 1:
+        system("cls");
         return_value_to_check_vehicle_number = add_vehicle_record();
         if(return_value_to_check_vehicle_number == 6)
         {
             cout << endl << "Delatils of this Vehicle Number Exists";
             this_thread::sleep_for(chrono::seconds(4));
+            system("cls");
             goto flag_for_traffic_police_entry;
         }
+        system("cls");
         goto flag_for_traffic_police_entry;
         break;
 
     case 2:
+        system("cls");
         search_vehicle_record();
+        system("cls");
         goto flag_for_traffic_police_entry;
         break;
 

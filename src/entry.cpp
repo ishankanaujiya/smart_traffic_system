@@ -47,7 +47,7 @@ int add_vehicle_record()
         else
         {
             file_for_vehicle_detail.write((char *)&add_vehicle_record_obj,sizeof(add_vehicle_record_obj));
-            cout << endl << "Vehicle Record Added Successfully";
+            cout << endl << "Vehicle Record Added Successfully" << endl;
             system("pause");
             
         }
