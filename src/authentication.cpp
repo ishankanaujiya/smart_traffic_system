@@ -62,6 +62,7 @@ int authentication_login()
             loading_page();
             system("cls");
             cout << endl << "Entered Successfully";
+            switch_case_for_admin();
             
         }
         else

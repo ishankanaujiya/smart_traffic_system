@@ -153,17 +153,6 @@ void display_all_records()
     }
     file_for_display_all_vehicle_record.close();
 
-    /*cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" <<endl;
-    for(i=0; i<count_for_total_number_of_vehicle_record; i++)
-    {
-        cout << "Vehicle Number"<< setw(40) 
-            << "Vehicle Type"<<setw(40) 
-            << "Owner's Name"<< setw(40) 
-            << "Phone Number" << setw(40) 
-            << "Address" <<endl;
-    }*/
-
-   // display_all_vehicle_record_vehicle(display_all_vehicle_record);
    display_all_vehicle_records(display_all_vehicle_record);
 
 }

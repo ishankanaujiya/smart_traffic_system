@@ -13,7 +13,7 @@ Traffic_Police_Entry Traffic_Entry_Obj;
 
 //Variables
 int i=0, return_value_for_login = 0;
-int choice_for_first_login, choice_for_admin_entry, choice_for_traffic_police_entry;
+int choice_for_first_login, choice_for_admin_entry, choice_for_traffic_police_entry, choice_for_admin;
 int return_value_to_check_vehicle_number;
 char ch_for_loading = 219;
 
@@ -152,6 +152,7 @@ void switch_case_for_traffic_police()
 
      case 4:
      display_all_records();
+     goto flag_for_traffic_police_entry;
         break;
     case 5:
         exit(0);
@@ -162,4 +163,49 @@ void switch_case_for_traffic_police()
         goto flag_for_traffic_police_entry;
     }
 
+}
+
+void switch_case_for_admin()
+{
+    flag_for_admin:
+    cout << endl << "1. Add" << endl << "2. Search" << endl << "3. Modify Record" << endl << "4. Delete Record" << endl << "5. Display" << endl << "6. Exit";
+    cout << endl << "Enter Your Choice: ";
+    cin >> choice_for_admin;
+    
+    switch (choice_for_admin)
+    {
+        case 1:
+            system("cls");
+            return_value_to_check_vehicle_number = add_vehicle_record();
+            if(return_value_to_check_vehicle_number == 6)
+            {
+                cout << endl << "Delatils of this Vehicle Number Exists";
+                this_thread::sleep_for(chrono::seconds(4));
+                system("cls");
+                goto flag_for_admin;
+            }
+            system("cls");
+            goto flag_for_admin;
+            
+            break;
+        case 2:
+            system("cls");
+            search_vehicle_record();
+            system("cls");
+            goto flag_for_admin;
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            exit(0);
+            break;
+        default:
+            cout << endl << "Wrong Choice..... Please Enter The Choice Again";
+            goto flag_for_admin;
+            break;
+    }
 }
