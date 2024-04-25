@@ -199,6 +199,8 @@ void switch_case_for_admin()
         case 4:
             break;
         case 5:
+            display_all_records();
+            goto flag_for_admin;
             break;
         case 6:
             exit(0);
