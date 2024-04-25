@@ -133,6 +133,7 @@ void display_all_records()
     }
     else
     {
+        count_for_total_number_of_vehicle_record =0;
         while(file_for_count_total_obj.read((char *)&display_all_vehicle_record_obj, sizeof(display_all_vehicle_record_obj)))
         {
             count_for_total_number_of_vehicle_record++;
