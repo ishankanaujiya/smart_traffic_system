@@ -90,12 +90,13 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
         if(vehicle_number_check == map_search_for_vehicle_record_obj[i].vehicle_number)
         {
             system("cls");
-            cout << endl << "Vehicle Number\t    Vehicle Type\t    Owner's Name\t        Phone Number\t    Address: ";
-            cout << endl << map_search_for_vehicle_record_obj[i].vehicle_number;
-            cout << "\t\t     " << map_search_for_vehicle_record_obj[i].vehicle_type;
-            cout << "\t\t\t     " << map_search_for_vehicle_record_obj[i].name;
-            cout << "\t\t     " << map_search_for_vehicle_record_obj[i].phone_number;
-            cout << "\t\t\t   " << map_search_for_vehicle_record_obj[i].address << endl;
+            cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" << setw(30) << "Amount" <<endl;
+            cout << map_search_for_vehicle_record_obj[i].vehicle_number<< setw(40) 
+                << map_search_for_vehicle_record_obj[i].vehicle_type <<setw(50) 
+                << map_search_for_vehicle_record_obj[i].name << setw(40) 
+                << map_search_for_vehicle_record_obj[i].phone_number << setw(40) 
+                << map_search_for_vehicle_record_obj[i].address << setw(30)
+                << map_search_for_vehicle_record_obj[i].amount <<endl;
             system("pause");
             
         }
@@ -172,13 +173,14 @@ void display_all_vehicle_records(Vehicle_Detail map_display_all_vehicle_record[]
 {
     int i=0;
     system("cls");
-    cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" <<endl;
+    cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" << setw(30) << "Amount" <<endl;
     for(i=0; i<count_for_total_number_of_vehicle_record; i++)
     {
         cout << map_display_all_vehicle_record[i].vehicle_number<< setw(40) 
             << map_display_all_vehicle_record[i].vehicle_type <<setw(50) 
             << map_display_all_vehicle_record[i].name << setw(40) 
-            << map_display_all_vehicle_record[i].phone_number << setw(50) 
-            << map_display_all_vehicle_record[i].address <<endl;
+            << map_display_all_vehicle_record[i].phone_number << setw(40) 
+            << map_display_all_vehicle_record[i].address << setw(30)
+            << map_display_all_vehicle_record[i].amount <<endl;
     }
 }

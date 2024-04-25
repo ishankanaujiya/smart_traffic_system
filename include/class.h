@@ -226,6 +226,7 @@ class Vehicle_Detail
         char name[100];
         long long int phone_number;
         char address[100];
+        int amount;
     public:
         void getValue()
         {
@@ -243,6 +244,9 @@ class Vehicle_Detail
             cin.ignore();
             cout << endl << "Address: ";
             cin.get(address,100);
+            cin.ignore();
+            cout << endl << "Amount: ";
+            cin >> amount;
             cin.ignore();
         }
         friend void search_vehicle_record(Vehicle_Detail[]);
