@@ -119,7 +119,7 @@ void switch_case_for_admin_entry()
 void switch_case_for_traffic_police()
 {
     flag_for_traffic_police_entry:
-    cout << endl << "1. Add Vehicle Record" << endl << "2. Search Vehicle Record" << endl << "3. Helpline Numbers" << endl << "4. Exit";
+    cout << endl << "1. Add Vehicle Record" << endl << "2. Search Vehicle Record" << endl << "3. Helpline Numbers" << endl << "4. Display Records" << endl << "5. Exit";
     cout << endl << "Enter Your Choice: ";
     cin >> choice_for_traffic_police_entry;
 
@@ -149,7 +149,11 @@ void switch_case_for_traffic_police()
     case 3:
 
     break;
-    case 4:
+
+     case 4:
+     display_all_records();
+        break;
+    case 5:
         exit(0);
         break;
     

@@ -3,15 +3,19 @@
 # include"../include/entry.h"
 # include"../include/function.h"
 # include"fstream"
+# include"cstring"
+# include"iomanip"
 # include"chrono"
 # include"thread"
+
 using namespace std;
 
 //Class Objects
-Vehicle_Detail add_vehicle_record_obj, search_vehicle_record_obj[100], vehicle_number_check_obj[100];
+Vehicle_Detail add_vehicle_record_obj, search_vehicle_record_obj[100], vehicle_number_check_obj[100], display_all_vehicle_record[100], display_all_vehicle_record_obj;
 
 //Variables
 int return_value_for_vehicle_number_check;
+int count_for_total_number_of_vehicle_record;
 
 int add_vehicle_record()
 {
@@ -99,6 +103,7 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
 
 }
 
+
 int vehicle_number_check(Vehicle_Detail obj_containing_entered_vehicle_detail, Vehicle_Detail obj_with_vehicle_detail[])
 {
     int i=0;
@@ -110,4 +115,70 @@ int vehicle_number_check(Vehicle_Detail obj_containing_entered_vehicle_detail, V
         }
     }
     return 0;
+}
+
+void display_all_records()
+{
+    fstream file_for_display_all_vehicle_record;
+    fstream file_for_count_total_obj;
+
+    int i=0;
+
+    //Read number of Objects in the File
+    file_for_count_total_obj.open("resource/vehicle_record.dat", ios::in | ios::binary);
+    if(!file_for_count_total_obj)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        while(file_for_count_total_obj.read((char *)&display_all_vehicle_record_obj, sizeof(display_all_vehicle_record_obj)))
+        {
+            count_for_total_number_of_vehicle_record++;
+        }
+    }
+    file_for_count_total_obj.close();
+
+
+    //Read all the Objects form the file
+    file_for_display_all_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::binary);
+    if(!file_for_display_all_vehicle_record)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        file_for_display_all_vehicle_record.read((char *)&display_all_vehicle_record,sizeof(display_all_vehicle_record));
+    }
+    file_for_display_all_vehicle_record.close();
+
+    /*cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" <<endl;
+    for(i=0; i<count_for_total_number_of_vehicle_record; i++)
+    {
+        cout << "Vehicle Number"<< setw(40) 
+            << "Vehicle Type"<<setw(40) 
+            << "Owner's Name"<< setw(40) 
+            << "Phone Number" << setw(40) 
+            << "Address" <<endl;
+    }*/
+
+   // display_all_vehicle_record_vehicle(display_all_vehicle_record);
+   display_all_vehicle_records(display_all_vehicle_record);
+
+}
+
+
+void display_all_vehicle_records(Vehicle_Detail map_display_all_vehicle_record[])
+{
+    int i=0;
+    system("cls");
+    cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" <<endl;
+    for(i=0; i<count_for_total_number_of_vehicle_record; i++)
+    {
+        cout << map_display_all_vehicle_record[i].vehicle_number<< setw(40) 
+            << map_display_all_vehicle_record[i].vehicle_type <<setw(50) 
+            << map_display_all_vehicle_record[i].name << setw(40) 
+            << map_display_all_vehicle_record[i].phone_number << setw(50) 
+            << map_display_all_vehicle_record[i].address <<endl;
+    }
 }
