@@ -195,6 +195,10 @@ void switch_case_for_admin()
             goto flag_for_admin;
             break;
         case 3:
+            modify_vehicle_record();
+            
+            goto flag_for_admin;
+
             break;
         case 4:
             break;

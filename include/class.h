@@ -252,5 +252,6 @@ class Vehicle_Detail
         friend void search_vehicle_record(Vehicle_Detail[]);
         friend int vehicle_number_check(Vehicle_Detail, Vehicle_Detail[]);
         friend void display_all_vehicle_records(Vehicle_Detail[]);
+        friend void modify_all_vehicle_record(Vehicle_Detail[]);
 };
 #endif
