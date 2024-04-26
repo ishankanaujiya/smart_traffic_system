@@ -213,72 +213,60 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
     {
         if(modify_vehicle_number == map_modify_all_vehicle_record[i].vehicle_number)
         {
-           // return_value_from_modify_vehicle_record = add_vehicle_record();
-            //system("cls");
-             /*   if(return_value_from_modify_vehicle_record == 6)
-                {
-                    cout << endl << "Delatils of this Vehicle Number Exists";
-                    this_thread::sleep_for(chrono::seconds(4));
-                    system("cls");
-                    
-                }*/
-                //system("cls");
-                cout << endl << "Enter New Details";
-                flag_for_modify_vehicle_record:
-                cout << endl << "Vehicle Number: ";
-                cin >> map_vehicle_number;
-                cin.ignore();
-                cout << endl << "Vehicle Type: ";
-                cin >> map_vehicle_type;
-                cin.ignore();
-                cout << endl << "Owners Name: ";
-                cin.get(map_name,100);
-                cin.ignore();
-                cout << endl << "Phone Number: ";
-                cin >> map_phone_number;
-                cin.ignore();
-                cout << endl << "Address: ";
-                cin.get(map_address,100);
-                cin.ignore();
-                cout << endl << "Amount: ";
-                cin >> map_amount;
-                cin.ignore();
+            cout << endl << "Enter New Details";
+            flag_for_modify_vehicle_record:
+            cout << endl << "Vehicle Number: ";
+            cin >> map_vehicle_number;
+            cin.ignore();
+            cout << endl << "Vehicle Type: ";
+            cin >> map_vehicle_type;
+            cin.ignore();
+            cout << endl << "Owners Name: ";
+            cin.get(map_name,100);
+            cin.ignore();
+            cout << endl << "Phone Number: ";
+            cin >> map_phone_number;
+            cin.ignore();
+            cout << endl << "Address: ";
+            cin.get(map_address,100);
+            cin.ignore();
+            cout << endl << "Amount: ";
+            cin >> map_amount;
+            cin.ignore();
 
-                for(j=0; j<100; j++)
+            for(j=0; j<100; j++)
+            {
+                if(map_vehicle_number == map_modify_all_vehicle_record[j].vehicle_number)
                 {
-                    if(map_vehicle_number == map_modify_all_vehicle_record[j].vehicle_number)
-                    {
-                        cout << endl << "Detail of this Vehicle Number is Already Registered";
-                        system("pause");
-                        goto flag_for_modify_vehicle_record;
-
-                    }
-                }
-
-                file_for_write_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::out | ios::binary);
-                if(!file_for_write_vehicle_record)
-                {
-                    cout << endl << "File Not Found";
-                }
-                else
-                {
-                    map_modify_all_vehicle_record[i].vehicle_number = map_vehicle_number;
-                    map_modify_all_vehicle_record[i].vehicle_type = map_vehicle_type;
-                    map_modify_all_vehicle_record[i].phone_number = map_phone_number;
-                    map_modify_all_vehicle_record[i].amount = map_amount;
-                    strcpy(map_modify_all_vehicle_record[i].name, map_name);
-                    strcpy(map_modify_all_vehicle_record[i].address, map_address);
-                    // Move the file pointer to the position where the modified record should be written
-                    file_for_write_vehicle_record.seekp(i * sizeof(Vehicle_Detail), ios::beg);
-                    // Write the modified record to the file
-                    file_for_write_vehicle_record.write((char *)&map_modify_all_vehicle_record[i], sizeof(Vehicle_Detail));
-                    //file_for_write_vehicle_record.write((char *)&map_modify_all_vehicle_record,sizeof(Vehicle_Detail));
-                    file_for_write_vehicle_record.close();
-                    flag_for_modify_vehicle_record = 0;
-                    cout << endl << "Vehicle Record Modified Successfully";
+                    cout << endl << "Detail of this Vehicle Number is Already Registered";
                     system("pause");
-                    break;
+                    goto flag_for_modify_vehicle_record;
+
                 }
+            }
+
+            file_for_write_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::out | ios::binary);
+            if(!file_for_write_vehicle_record)
+            {
+                cout << endl << "File Not Found";
+            }
+            else
+            {
+                map_modify_all_vehicle_record[i].vehicle_number = map_vehicle_number;
+                map_modify_all_vehicle_record[i].vehicle_type = map_vehicle_type;
+                map_modify_all_vehicle_record[i].phone_number = map_phone_number;
+                map_modify_all_vehicle_record[i].amount = map_amount;
+                strcpy(map_modify_all_vehicle_record[i].name, map_name);
+                strcpy(map_modify_all_vehicle_record[i].address, map_address);
+                file_for_write_vehicle_record.seekp(i * sizeof(Vehicle_Detail), ios::beg);
+                file_for_write_vehicle_record.write((char *)&map_modify_all_vehicle_record[i], sizeof(Vehicle_Detail));
+                //file_for_write_vehicle_record.write((char *)&map_modify_all_vehicle_record,sizeof(Vehicle_Detail));
+                file_for_write_vehicle_record.close();
+                flag_for_modify_vehicle_record = 0;
+                cout << endl << "Vehicle Record Modified Successfully";
+                system("pause");
+                break;
+            }
                 
         }
 
