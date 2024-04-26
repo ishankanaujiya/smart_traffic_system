@@ -155,7 +155,8 @@ void switch_case_for_traffic_police()
      goto flag_for_traffic_police_entry;
         break;
     case 5:
-        exit(0);
+    switch_case_for_entry();
+        //exit(0);
         break;
     
     default:
