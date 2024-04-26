@@ -209,6 +209,7 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
 
     cout << endl << "Enter Vehicle Number whose detail is to be Modified: ";
     cin >> modify_vehicle_number;
+    
     for(i=0; i<100; i++)
     {
         if(modify_vehicle_number == map_modify_all_vehicle_record[i].vehicle_number)
@@ -234,11 +235,12 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
             cin >> map_amount;
             cin.ignore();
 
+
             for(j=0; j<100; j++)
             {
                 if(map_vehicle_number == map_modify_all_vehicle_record[j].vehicle_number)
                 {
-                    cout << endl << "Detail of this Vehicle Number is Already Registered";
+                    cout << endl << "Detail of this Vehicle Number is Already Registered" << endl;
                     system("pause");
                     goto flag_for_modify_vehicle_record;
 
@@ -258,12 +260,14 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
                 map_modify_all_vehicle_record[i].amount = map_amount;
                 strcpy(map_modify_all_vehicle_record[i].name, map_name);
                 strcpy(map_modify_all_vehicle_record[i].address, map_address);
+
+                //Modifying The Vehicle Record
                 file_for_write_vehicle_record.seekp(i * sizeof(Vehicle_Detail), ios::beg);
                 file_for_write_vehicle_record.write((char *)&map_modify_all_vehicle_record[i], sizeof(Vehicle_Detail));
-                //file_for_write_vehicle_record.write((char *)&map_modify_all_vehicle_record,sizeof(Vehicle_Detail));
                 file_for_write_vehicle_record.close();
+
                 flag_for_modify_vehicle_record = 0;
-                cout << endl << "Vehicle Record Modified Successfully";
+                cout << endl << "Vehicle Record Modified Successfully" << endl;
                 system("pause");
                 break;
             }
@@ -275,6 +279,7 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
             flag_for_modify_vehicle_record = 1;
         }
     }
+
     if(flag_for_modify_vehicle_record ==1)
     {
         cout << endl << "No Record Found";
