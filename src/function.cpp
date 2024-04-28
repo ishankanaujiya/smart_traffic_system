@@ -196,16 +196,19 @@ void switch_case_for_admin()
             goto flag_for_admin;
             break;
         case 3:
+            system("cls");
             modify_vehicle_record();
             
             goto flag_for_admin;
 
             break;
         case 4:
+            system("cls");
             delete_vehicle_record();
             goto flag_for_admin;
             break;
         case 5:
+            system("cls");
             display_all_records();
             goto flag_for_admin;
             break;

@@ -343,6 +343,7 @@ void delete_vehicle_record()
     delete_given_vehicle_record(delete_vehicle_record_obj);
 }
 
+
 void delete_given_vehicle_record(Vehicle_Detail map_delete_vehicle_record_obj[])
 {
     fstream file_for_delete_given_vehicle_record;
@@ -414,7 +415,7 @@ void delete_given_vehicle_record(Vehicle_Detail map_delete_vehicle_record_obj[])
     }
     else
     {
-        cout << endl << "Vehicle Record Deleted Successfully";
+        cout << endl << "Vehicle Record Deleted Successfully" << endl;
         system("pause");
     }
 }
