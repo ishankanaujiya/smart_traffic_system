@@ -249,9 +249,20 @@ class Vehicle_Detail
             cin >> amount;
             cin.ignore();
         }
+
+        void initialize_value()
+        {
+            vehicle_number = 0;
+            vehicle_type = 0;
+            strcpy(name, "");
+            phone_number;
+            strcpy(address, "");
+            amount;
+        }
         friend void search_vehicle_record(Vehicle_Detail[]);
         friend int vehicle_number_check(Vehicle_Detail, Vehicle_Detail[]);
         friend void display_all_vehicle_records(Vehicle_Detail[]);
         friend void modify_all_vehicle_record(Vehicle_Detail[]);
+        friend void delete_given_vehicle_record(Vehicle_Detail[]);
 };
 #endif

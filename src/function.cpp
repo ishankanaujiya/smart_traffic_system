@@ -202,6 +202,8 @@ void switch_case_for_admin()
 
             break;
         case 4:
+            delete_vehicle_record();
+            goto flag_for_admin;
             break;
         case 5:
             display_all_records();

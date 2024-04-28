@@ -12,11 +12,11 @@ using namespace std;
 
 //Class Objects
 Vehicle_Detail add_vehicle_record_obj, search_vehicle_record_obj[100], vehicle_number_check_obj[100], display_all_vehicle_record[100], display_all_vehicle_record_obj;
-Vehicle_Detail modify_all_vehicle_record_obj[100];
+Vehicle_Detail modify_all_vehicle_record_obj[100], delete_vehicle_record_obj[100], delete_record_obj, search_record_obj;
 
 //Variables
 int return_value_for_vehicle_number_check, return_value_from_modify_vehicle_record;
-int count_for_total_number_of_vehicle_record;
+int count_for_total_number_of_vehicle_record, count_for_total_number_of_obj_to_delete_vehicle_record, count_for_total_search;
 
 int add_vehicle_record()
 {
@@ -64,7 +64,32 @@ int add_vehicle_record()
 void search_vehicle_record()
 {
     fstream file_for_search_vehicle_record;
-    int vehicle_number_check;
+    fstream file_for_read_vehicle_record;
+    int vehicle_number_check, i=0;
+
+    for(i=0; i<100; i++)
+    {
+        search_vehicle_record_obj[i].initialize_value();
+    }
+
+    //Read number of Objects in the File
+    /*file_for_total_number_of_records.open("resource/vehicle_record.dat", ios::in | ios::binary);
+    if(!file_for_total_number_of_records)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        count_for_total_number_of_vehicle_record =0;
+        while(file_for_total_number_of_records.read((char *)&search_record_obj, sizeof(search_record_obj)))
+        {
+            count_for_total_search++;
+        }
+    }
+    file_for_total_number_of_records.close();*/
+
+
+
     file_for_search_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::binary);
     if(!file_for_search_vehicle_record)
     {
@@ -75,17 +100,47 @@ void search_vehicle_record()
         file_for_search_vehicle_record.read((char *)&search_vehicle_record_obj,sizeof(search_vehicle_record_obj));
         file_for_search_vehicle_record.close();
     }
-    search_vehicle_record(search_vehicle_record_obj);
+    //file_for_search_vehicle_record.close();
+    //search_vehicle_record_obj->initialize_value();
+    read_file_for_search_record();
+   // search_vehicle_record(search_vehicle_record_obj);
 
 }
 
+
+void read_file_for_search_record()
+{
+    fstream file_for_read_vehicle_record;
+    int i=0;
+    for(i=0; i<100; i++)
+    {
+        search_vehicle_record_obj[i].initialize_value();
+    }
+    file_for_read_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::binary);
+    if(!file_for_read_vehicle_record)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        file_for_read_vehicle_record.read((char *)&search_vehicle_record_obj,sizeof(search_vehicle_record_obj));
+        file_for_read_vehicle_record.close();
+        //search_vehicle_record(search_vehicle_record_obj);
+    }
+    search_vehicle_record(search_vehicle_record_obj);
+    //file_for_read_vehicle_record.close();
+    
+    //search_vehicle_record(search_vehicle_record_obj);
+
+}
 void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
 {
     int vehicle_number_check;
     int i=0;
+    //vehicle_number_check = 0;
+    cin.ignore();
     cout << endl << "Enter The Vehicle Number whose detail you want to Searh:  ";
     cin >> vehicle_number_check;
-
     for(i=0; i<100; i++)
     {
         if(vehicle_number_check == map_search_for_vehicle_record_obj[i].vehicle_number)
@@ -288,4 +343,96 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
     }
     
 
+}
+
+void delete_vehicle_record()
+{
+    fstream file_for_delete_vehicle_record;
+    file_for_delete_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::binary);
+    if(!file_for_delete_vehicle_record)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        file_for_delete_vehicle_record.read((char *)&delete_vehicle_record_obj,sizeof(delete_vehicle_record_obj));
+    }
+    file_for_delete_vehicle_record.close();
+    delete_given_vehicle_record(delete_vehicle_record_obj);
+}
+
+void delete_given_vehicle_record(Vehicle_Detail map_delete_vehicle_record_obj[])
+{
+    fstream file_for_delete_given_vehicle_record;
+    fstream file_for_total_number_of_obj;
+
+    //Read number of Objects in the File
+    file_for_total_number_of_obj.open("resource/vehicle_record.dat", ios::in | ios::binary);
+    if(!file_for_total_number_of_obj)
+    {
+        cout << endl << "File Not Found";
+    }
+    else
+    {
+        count_for_total_number_of_obj_to_delete_vehicle_record =0;
+        while(file_for_total_number_of_obj.read((char *)&delete_record_obj, sizeof(delete_record_obj)))
+        {
+            count_for_total_number_of_obj_to_delete_vehicle_record++;
+        }
+    }
+    file_for_total_number_of_obj.close();
+
+    
+
+    int map_vehicle_number_to_delete, i=0, flag_for_delete_vehicle_record = 0;
+    string original_filename = "resource/vehicle_record.dat";
+    string demo_filename = "resource/demo_vehicle_record.dat";
+
+
+    cout << endl << "Enter the Vehicle Number whose Record is to be Deleted: ";
+    cin >> map_vehicle_number_to_delete;
+    
+    for(i=0; i<count_for_total_number_of_obj_to_delete_vehicle_record; i++)
+    {
+        if(map_vehicle_number_to_delete == map_delete_vehicle_record_obj[i].vehicle_number)
+        {
+            flag_for_delete_vehicle_record = 0;
+            file_for_delete_given_vehicle_record.open("resource/demo_vehicle_record.dat", ios::out | ios::binary);
+            if(!file_for_delete_given_vehicle_record)
+            {
+                cout << endl << "File Not Found";
+            }
+            else
+            {
+                for(i=0; i<count_for_total_number_of_obj_to_delete_vehicle_record; i++)
+                {
+                    if(map_vehicle_number_to_delete != map_delete_vehicle_record_obj[i].vehicle_number)
+                    {
+                        file_for_delete_given_vehicle_record.write((char *)&map_delete_vehicle_record_obj[i],sizeof(map_delete_vehicle_record_obj[i]));
+                    }
+                }
+            }
+
+            file_for_delete_given_vehicle_record.close();
+            remove(original_filename.c_str());
+            rename("resource/demo_vehicle_record.dat", original_filename.c_str());
+            break;
+        }
+        else
+        {
+            flag_for_delete_vehicle_record = 1;
+        }
+
+    }
+
+    if(flag_for_delete_vehicle_record == 1)
+    {
+        cout << endl << "No Record Found" << endl;
+        system("pause");
+    }
+    else
+    {
+        cout << endl << "Vehicle Record Deleted Successfully";
+        system("pause");
+    }
 }
