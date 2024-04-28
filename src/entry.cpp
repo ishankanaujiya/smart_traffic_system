@@ -67,29 +67,14 @@ void search_vehicle_record()
     fstream file_for_read_vehicle_record;
     int vehicle_number_check, i=0;
 
+    //Initialize Value
     for(i=0; i<100; i++)
     {
         search_vehicle_record_obj[i].initialize_value();
     }
 
-    //Read number of Objects in the File
-    /*file_for_total_number_of_records.open("resource/vehicle_record.dat", ios::in | ios::binary);
-    if(!file_for_total_number_of_records)
-    {
-        cout << endl << "File Not Found";
-    }
-    else
-    {
-        count_for_total_number_of_vehicle_record =0;
-        while(file_for_total_number_of_records.read((char *)&search_record_obj, sizeof(search_record_obj)))
-        {
-            count_for_total_search++;
-        }
-    }
-    file_for_total_number_of_records.close();*/
 
-
-
+    //Read The File To Change Value
     file_for_search_vehicle_record.open("resource/vehicle_record.dat", ios::in | ios::binary);
     if(!file_for_search_vehicle_record)
     {
@@ -100,10 +85,9 @@ void search_vehicle_record()
         file_for_search_vehicle_record.read((char *)&search_vehicle_record_obj,sizeof(search_vehicle_record_obj));
         file_for_search_vehicle_record.close();
     }
-    //file_for_search_vehicle_record.close();
-    //search_vehicle_record_obj->initialize_value();
+    
     read_file_for_search_record();
-   // search_vehicle_record(search_vehicle_record_obj);
+   
 
 }
 
@@ -125,12 +109,10 @@ void read_file_for_search_record()
     {
         file_for_read_vehicle_record.read((char *)&search_vehicle_record_obj,sizeof(search_vehicle_record_obj));
         file_for_read_vehicle_record.close();
-        //search_vehicle_record(search_vehicle_record_obj);
+
     }
     search_vehicle_record(search_vehicle_record_obj);
-    //file_for_read_vehicle_record.close();
-    
-    //search_vehicle_record(search_vehicle_record_obj);
+
 
 }
 void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
