@@ -370,7 +370,7 @@ void delete_given_vehicle_record(Vehicle_Detail map_delete_vehicle_record_obj[])
     string original_filename = "resource/vehicle_record.dat";
     string demo_filename = "resource/demo_vehicle_record.dat";
 
-
+    //Vehicle Number to Delete Vehicle Record
     cout << endl << "Enter the Vehicle Number whose Record is to be Deleted: ";
     cin >> map_vehicle_number_to_delete;
     
