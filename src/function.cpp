@@ -183,7 +183,7 @@ void switch_case_for_traffic_police()
         goto flag_for_traffic_police_entry;
         break;
     case 6:
-    switch_case_for_entry();
+        switch_case_for_entry();
         //exit(0);
         break;
     
