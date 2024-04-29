@@ -160,6 +160,11 @@ void switch_case_for_traffic_police()
         break;
 
     case 3:
+        system("cls");
+        display_all_emergency_numbers();
+        system("pause");
+        system("cls");
+        goto flag_for_traffic_police_entry;
 
     break;
 
@@ -171,8 +176,11 @@ void switch_case_for_traffic_police()
         goto flag_for_traffic_police_entry;
     break;
      case 5:
-     display_all_records();
-     goto flag_for_traffic_police_entry;
+        system("cls");
+        display_all_records();
+        system("pause");
+        system("cls");
+        goto flag_for_traffic_police_entry;
         break;
     case 6:
     switch_case_for_entry();
@@ -265,3 +273,20 @@ void display_all_details()
     cout << "District Police Range                                    " << "Bhansar Marg                       " << "985-1283012"<<endl<<endl;
     cout << "Metropolitan Temporary Police Beat                       " << "MidBaneshor                        " << "985-1283003"<<endl<<endl;
 }
+
+void display_all_emergency_numbers()
+{
+    cout << "Name of Emergency/ Helpline Services                                " << "Number                            " << "Charge"<<endl <<endl <<endl;
+    cout << "Nepal Police                                                        " << "100                               " << "Free"<<endl <<endl <<endl;
+    cout << "Fire Support                                                        " << "101                               " << "Free"<<endl <<endl <<endl;
+    cout << "Ambulance Support                                                   " << "102                               " << "Free"<<endl <<endl <<endl;
+    cout << "Traffic Support                                                     " << "103                               " << "Free"<<endl <<endl <<endl;
+    cout << "Child Helpline                                                      " << "104                               " << "Free"<<endl <<endl <<endl;
+    cout << "CIAA(Commission for the Investigation of Abuse of Authority)        " << "107                               " << "Free"<<endl <<endl <<endl;
+    cout << "Missing Child Response                                              " << "1098                              " << "Free"<<endl <<endl <<endl;
+    cout << "Armed Police Force Support                                          " << "1114                              " << "Free"<<endl <<endl <<endl;
+    cout << "Women Helpline                                                      " << "1145                              " << "Free"<<endl <<endl <<endl;
+    cout << "NEA Helpline                                                        " << "1149                              " << "Free"<<endl <<endl <<endl;
+    cout << "Patan Mental Hospital                                               " << "1166                              " << "Free"<<endl <<endl <<endl;
+}
+
