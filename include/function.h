@@ -7,5 +7,6 @@ void switch_case_for_entry();
 void loading_page();
 void switch_case_for_admin_entry();
 void switch_case_for_traffic_police();
+void display_all_details();
 void switch_case_for_admin();
 #endif

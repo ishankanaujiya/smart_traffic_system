@@ -132,7 +132,7 @@ void switch_case_for_admin_entry()
 void switch_case_for_traffic_police()
 {
     flag_for_traffic_police_entry:
-    cout << endl << "1. Add Vehicle Record" << endl << "2. Search Vehicle Record" << endl << "3. Helpline Numbers" << endl << "4. Display Records" << endl << "5. Exit";
+    cout << endl << "1. Add Vehicle Record" << endl << "2. Search Vehicle Record" << endl << "3. Helpline Numbers" << endl << "4. Police Staion Details" << endl << "5. Display Records" << endl << "6. Exit";
     cout << endl << "Enter Your Choice: ";
     cin >> choice_for_traffic_police_entry;
 
@@ -163,11 +163,18 @@ void switch_case_for_traffic_police()
 
     break;
 
-     case 4:
+    case 4:
+        system("cls");
+        display_all_details();
+        system("pause");
+        system("cls");
+        goto flag_for_traffic_police_entry;
+    break;
+     case 5:
      display_all_records();
      goto flag_for_traffic_police_entry;
         break;
-    case 5:
+    case 6:
     switch_case_for_entry();
         //exit(0);
         break;
@@ -233,4 +240,28 @@ void switch_case_for_admin()
             goto flag_for_admin;
             break;
     }
+}
+
+
+
+void display_all_details()
+{
+    cout << "Police Staion Name                                       " << "Address                            " << "Phone Number"<<endl <<endl <<endl;
+    cout << "Nepal Police Headquarters                                " << "Sama Marg                          " << "01-4411210"<<endl<<endl;
+    cout << "Kathmandu Valley Police Office                           " << "Ratna Park                         " << "01-4231466"<<endl<<endl;
+    cout << "Tudal Devi Police Beat                                   " << "Tudal Devi                         " << "01-426646"<<endl<<endl;
+    cout << "Maharajgunj Police Station                               " << "Ring Rd                            " << "985-1283007"<<endl<<endl;
+    cout << "Metropolitan Police Circle                               " << "Paknajol Marg                      " << "985-1282799"<<endl<<endl;
+    cout << "Police Sector                                            " << "Koteshwor                          " << "01-4600739"<<endl<<endl;
+    cout << "Police Office                                            " << "Gangahiti                          " << "01-4425364"<<endl<<endl;
+    cout << "Metropolitan Police Circle Jansewa                       " << "New Road                           " << "01-4222757"<<endl<<endl;
+    cout << "Temporary Metropolitan Police Division                   " << "Naya Bazar                         " << "01-4389653"<<endl<<endl;
+    cout << "Traffic Police Durbar Marg                               " << "Durbar Marg                        " << "985-1281344"<<endl<<endl;
+    cout << "Panchakanya Police Station                               " << "Chundevi Marg                      " << "9864321569"<<endl<<endl;
+    cout << "Metropolitan Police Beat                                 " << "Bafal                              " << "01-4282100"<<endl<<endl;
+    cout << "Mahanagar Police Beat                                    " << "Midbaneshwor                       " << "01-4256346"<<endl<<endl;
+    cout << "Metropolitan Police Circle                               " << "Kamalpokhari                       " << "9863563166"<<endl<<endl;
+    cout << "Metropolitan Police Witt                                 " << "Milan Marg                         " << "01-42100536"<<endl<<endl;
+    cout << "District Police Range                                    " << "Bhansar Marg                       " << "985-1283012"<<endl<<endl;
+    cout << "Metropolitan Temporary Police Beat                       " << "MidBaneshor                        " << "985-1283003"<<endl<<endl;
 }
