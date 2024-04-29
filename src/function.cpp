@@ -14,7 +14,7 @@ Traffic_Police_Entry Traffic_Entry_Obj;
 //Variables
 int i=0, return_value_for_login = 0;
 int choice_for_first_login, choice_for_admin_entry, choice_for_traffic_police_entry, choice_for_admin;
-int return_value_to_check_vehicle_number;
+int return_value_to_check_vehicle_number, value_to_enter_admin;
 char ch_for_loading = 219;
 
 void main_call()
@@ -48,7 +48,20 @@ void switch_case_for_entry()
         break;
 
         case 2:
-            switch_case_for_admin_entry();
+            system("cls");
+            cout << endl << "Enter PIN Number: ";
+            cin >>value_to_enter_admin;
+
+            if(value_to_enter_admin == 6531)
+            {
+                switch_case_for_admin_entry();
+            }
+            else
+            {
+                cout << endl << "Wrong PIN....." << endl;
+                system("pause");
+                goto flag_for_first_switch_case;
+            }
             //cout << endl << "Case 2";
         break;
 
