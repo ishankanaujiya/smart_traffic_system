@@ -251,8 +251,9 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
     {
         if(modify_vehicle_number == map_modify_all_vehicle_record[i].vehicle_number)
         {
-            cout << endl << "Enter New Details";
             flag_for_modify_vehicle_record:
+            cout << endl << "Enter New Details";
+            //flag_for_modify_vehicle_record:
             cout << endl << "Vehicle Number: ";
             cin >> map_vehicle_number;
             cin.ignore();

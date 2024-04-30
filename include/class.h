@@ -116,7 +116,7 @@ class Authentication_Registration
         char name[100];
         int provience_number;
         char address[100];
-        int phone_number;
+        long long int phone_number;
         char username[100];
         char password[100];
     public:
