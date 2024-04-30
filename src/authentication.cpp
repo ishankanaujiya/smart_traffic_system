@@ -70,7 +70,7 @@ int authentication_login()
         else
         {
             cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Password";
-            this_thread::sleep_for(chrono::seconds(4));
+            this_thread::sleep_for(chrono::seconds(2));
             return 1;
         }
         file_for_login.close();
@@ -105,9 +105,10 @@ void authentication_registration()
         }
         if(count_for_total_registration>6)
         {
-            cout << endl << "Registration for only 7 provience is accepted";
+            cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tRegistration for only 7 provience is accepted";
             this_thread::sleep_for(chrono::seconds(4));
-            exit(0);
+            switch_case_for_admin_entry();
         }
         file_for_registration_check.close();
     }
@@ -134,6 +135,10 @@ void authentication_registration()
     }
     else
     {
+        cout << endl;
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t********************************************";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tREGISTRATION";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t********************************************" << endl;
         registration_obj.get_registration_value();
         
         //Call for Friend Function
@@ -141,13 +146,17 @@ void authentication_registration()
         if(return_value_to_allow_registration == 6)
         {
             system("cls");
-            cout << endl << "The Detail of This Province is Already Registered" << endl;
+            cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tThe Detail of This Province is Already Registered" << endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t";
             system("pause");
         }
         else
         {
             system("cls");
-            cout << endl << "Account Registered Successfully" << endl;
+            cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tAccount Registered Successfully" << endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t";
             system("pause");
             file_for_registration.write((char *)&registration_obj,sizeof(registration_obj));
         }

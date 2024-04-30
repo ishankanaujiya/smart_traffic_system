@@ -55,7 +55,9 @@ int add_vehicle_record()
         else
         {
             file_for_vehicle_detail.write((char *)&add_vehicle_record_obj,sizeof(add_vehicle_record_obj));
-            cout << endl << "Vehicle Record Added Successfully" << endl;
+            
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tVehicle Record Added Successfully" << endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t";
             system("pause");
             
         }
@@ -124,7 +126,7 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
     int i=0;
     //vehicle_number_check = 0;
     cin.ignore();
-    cout << endl << "Enter The Vehicle Number whose detail you want to Searh:  ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter The Vehicle Number whose detail you want to Searh:  ";
     cin >> vehicle_number_check;
     for(i=0; i<100; i++)
     {
@@ -132,7 +134,9 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
         {
             system("cls");
             flag_for_search_record = 0;
+            cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________________" << endl;
             cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" << setw(30) << "Amount" <<endl;
+            cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________________" << endl << endl;
             cout << map_search_for_vehicle_record_obj[i].vehicle_number<< setw(40) 
                 << map_search_for_vehicle_record_obj[i].vehicle_type <<setw(50) 
                 << map_search_for_vehicle_record_obj[i].name << setw(40) 
@@ -150,7 +154,9 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
     }
     if(flag_for_search_record == 1)
     {
-        cout << endl << "No Record Found"  << endl;
+        system("cls");
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tNo Record Found"  << endl;
+        cout << "\t\t\t\t\t\t\t\t\t\t\t";
         system("pause");
     }
 
@@ -260,32 +266,33 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
 
     fstream file_for_write_vehicle_record;
 
-    cout << endl << "Enter Vehicle Number whose detail is to be Modified: ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tEnter Vehicle Number whose detail is to be Modified: ";
     cin >> modify_vehicle_number;
     
     for(i=0; i<100; i++)
     {
         if(modify_vehicle_number == map_modify_all_vehicle_record[i].vehicle_number)
         {
+            system("cls");
             flag_for_modify_vehicle_record:
-            cout << endl << "Enter New Details";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tEnter New Details";
             //flag_for_modify_vehicle_record:
-            cout << endl << "Vehicle Number: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tVehicle Number: ";
             cin >> map_vehicle_number;
             cin.ignore();
-            cout << endl << "Vehicle Type: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tVehicle Type: ";
             cin >> map_vehicle_type;
             cin.ignore();
-            cout << endl << "Owners Name: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tOwners Name: ";
             cin.get(map_name,100);
             cin.ignore();
-            cout << endl << "Phone Number: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tPhone Number: ";
             cin >> map_phone_number;
             cin.ignore();
-            cout << endl << "Address: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tAddress: ";
             cin.get(map_address,100);
             cin.ignore();
-            cout << endl << "Amount: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tAmount: ";
             cin >> map_amount;
             cin.ignore();
 
@@ -294,7 +301,9 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
             {
                 if(map_vehicle_number == map_modify_all_vehicle_record[j].vehicle_number)
                 {
-                    cout << endl << "Detail of this Vehicle Number is Already Registered" << endl;
+                    system("cls");
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tDetail of this Vehicle Number is Already Registered" << endl;
+                    cout << "\t\t\t\t\t\t\t\t\t\t\t";
                     system("pause");
                     goto flag_for_modify_vehicle_record;
 
@@ -321,7 +330,9 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
                 file_for_write_vehicle_record.close();
 
                 flag_for_modify_vehicle_record = 0;
-                cout << endl << "Vehicle Record Modified Successfully" << endl;
+                system("cls");
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tVehicle Record Modified Successfully" << endl;
+                cout << "\t\t\t\t\t\t\t\t\t\t\t";
                 system("pause");
                 break;
             }
@@ -336,7 +347,9 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
 
     if(flag_for_modify_vehicle_record ==1)
     {
-        cout << endl << "No Record Found" << endl;
+        system("cls");
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tNo Record Found" << endl;
+        cout << "\t\t\t\t\t\t\t\t\t\t\t";
         system("pause");
         system("cls");
         switch_case_for_admin();
@@ -391,7 +404,7 @@ void delete_given_vehicle_record(Vehicle_Detail map_delete_vehicle_record_obj[])
     string demo_filename = "resource/demo_vehicle_record.dat";
 
     //Vehicle Number to Delete Vehicle Record
-    cout << endl << "Enter the Vehicle Number whose Record is to be Deleted: ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tEnter the Vehicle Number whose Record is to be Deleted: ";
     cin >> map_vehicle_number_to_delete;
     
     for(i=0; i<count_for_total_number_of_obj_to_delete_vehicle_record; i++)
@@ -429,12 +442,16 @@ void delete_given_vehicle_record(Vehicle_Detail map_delete_vehicle_record_obj[])
 
     if(flag_for_delete_vehicle_record == 1)
     {
-        cout << endl << "No Record Found" << endl;
+        system("cls");
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tNo Record Found" << endl;
+        cout << "\t\t\t\t\t\t\t\t\t\t\t";
         system("pause");
     }
     else
     {
-        cout << endl << "Vehicle Record Deleted Successfully" << endl;
+        system("cls");
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tVehicle Record Deleted Successfully" << endl;
+        cout << "\t\t\t\t\t\t\t\t\t\t\t";
         system("pause");
     }
 }

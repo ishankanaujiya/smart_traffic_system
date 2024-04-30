@@ -79,8 +79,10 @@ void switch_case_for_entry()
         break;
 
         default:
-            cout << endl << "Wrong Choice..... Please Enter Choice Again";
-            this_thread::sleep_for(chrono::seconds(4));
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter Choice Again" << endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t";
+            system("pause");
+            //this_thread::sleep_for(chrono::seconds(4));
             goto flag_for_first_switch_case;
         break;
     }
@@ -167,7 +169,8 @@ void switch_case_for_traffic_police()
         return_value_to_check_vehicle_number = add_vehicle_record();
         if(return_value_to_check_vehicle_number == 6)
         {
-            cout << endl << "Delatils of this Vehicle Number Exists"  << endl;
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tDelatils of this Vehicle Number Exists"  << endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t";
             system("pause");
             //this_thread::sleep_for(chrono::seconds(4));
             system("cls");
@@ -213,7 +216,7 @@ void switch_case_for_traffic_police()
         break;
     
     default:
-        cout << endl << "Wrong Choice..... Please Enter The Choice Again";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter The Choice Again";
         goto flag_for_traffic_police_entry;
     }
 
