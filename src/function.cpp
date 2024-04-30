@@ -37,8 +37,11 @@ void switch_case_for_entry()
 {
     flag_for_first_switch_case:
     system("cls");
-    cout << endl << "1. Traffic Police" << endl << "2. Admin" << endl << "3. Exit";
-    cout << endl << "Enter Your Choice: ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tWELCOME";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t1. Traffic Police" << endl << "\t\t\t\t\t\t\t\t\t\t\t2. Admin" << endl << "\t\t\t\t\t\t\t\t\t\t\t3. Exit" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter Your Choice: ";
     cin >> choice_for_first_login;
 
     switch (choice_for_first_login)

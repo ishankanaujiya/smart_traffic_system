@@ -18,7 +18,9 @@ class Traffic_Police_Entry
     public:
         void get_pin_number()
         {
-            cout << endl << "Enter PIN: ";
+            system("COLOR 0B");
+            cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t\tEnter PIN: ";
             cin >> pin_number_check;
             this_thread::sleep_for(chrono::milliseconds(1000));
             compare_pin_number();
@@ -39,18 +41,26 @@ class Traffic_Police_Entry
                 count_for_wrong_pin--;
                 if(count_for_wrong_pin == 0)
                 {
-                    cout << endl << "SUSPICIOUS ACT";
-                    this_thread::sleep_for(chrono::milliseconds(1000));
+                    system("COLOR 0C");
+                    cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t********************************************";
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tSUSPICIOUS ACT";
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t********************************************";
+                    this_thread::sleep_for(chrono::milliseconds(2000));
                     exit(0);
                 }
                 if(count_for_wrong_pin<=3)
                 {
-                    cout << endl << "WRONG PIN";
-                    cout << endl << "Total Try Left: " << count_for_wrong_pin;
-
+                    system("COLOR 0C");
+                    cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t********************************************";
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tWRONG PIN";
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tTotal Try Left: " << count_for_wrong_pin;
+                    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t********************************************";
                 }
                 
                 this_thread::sleep_for(chrono::milliseconds(2000));
+                system("COLOR 07");
                 system("cls");
                 get_pin_number();
             }
