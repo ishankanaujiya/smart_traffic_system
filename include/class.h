@@ -80,10 +80,10 @@ class Authentication_Login
         {
             fflush(stdin);
             //cin.ignore();
-            cout << "Username: ";
+            cout << "\t\t\t\t\t\t\t\t\t\t\tUsername: ";
             cin.get(username,100);
             cin.ignore();
-            cout << "Password: ";
+            cout << "\t\t\t\t\t\t\t\t\t\t\tPassword: ";
             //cin.get(password,100);
             char ch1;
             int i=0;
@@ -132,33 +132,33 @@ class Authentication_Registration
     public:
         void get_registration_value()
         {
-            cout <<endl << "District Name: ";
+            cout <<endl << "\t\t\t\t\t\t\t\t\t\t\tDistrict Name: ";
             cin.get(name,100);
             cin.ignore();
             flag_for_provience_number:
-            cout <<endl << "Province Number: ";
+            cout <<endl << "\t\t\t\t\t\t\t\t\t\t\tProvince Number: ";
             cin >> provience_number;
             if(provience_number<=0 || provience_number>7)
             {
-                cout << endl << "Enter Province Number from 1 to 7";
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter Province Number from 1 to 7";
                 goto flag_for_provience_number;
                 
             }
             cin.ignore();
-            cout <<endl << "Headquarter's Address: ";
+            cout <<endl << "\t\t\t\t\t\t\t\t\t\t\tHeadquarter's Address: ";
             cin.get(address,100);
             cin.ignore();
-            cout <<endl << "Headquarter's Contact Number: ";
+            cout <<endl << "\t\t\t\t\t\t\t\t\t\t\tHeadquarter's Contact Number: ";
             cin >> phone_number;
             cin.ignore();
             system("cls");
-            cout <<endl << endl << "Username: ";
+            cout <<endl << endl << "\t\t\t\t\t\t\t\t\t\t\tUsername: ";
             cin.get(username,100);
             flag_for_password:
             system("cls");
             display_rules();
             cin.ignore();
-            cout <<endl << endl << "Password: ";
+            cout <<endl << endl << "\t\t\t\t\t\t\t\t\t\t\tPassword: ";
             cin.get(password,100);
 
             //Strong Password
@@ -169,13 +169,13 @@ class Authentication_Registration
 
             if(password_check_len<=6)
             {
-                cout << endl << "The Password is too short.... Please Enrter the Password Again";
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\tThe Password is too short.... Please Enrter the Password Again";
                 this_thread::sleep_for(chrono::milliseconds(2000));
                 goto flag_for_password;
             }
             if(password_check_len>=15)
             {
-                cout << endl << "The Password is too long.... Please Entrer the Password Again";
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\tThe Password is too long.... Please Entrer the Password Again";
                 this_thread::sleep_for(chrono::milliseconds(2000));
                 goto flag_for_password;
             }
@@ -196,13 +196,13 @@ class Authentication_Registration
             }
             if(count_for_numbers_check>0 && count_for_alphabet_check>0 && count_for_symbol_check>0)
             {
-                cout << endl << "Account Registered Successfully" << endl;
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\tAccount Registered Successfully" << endl;
                 //system("pause");
             
             }
             else
             {
-                cout << endl << "The Entered Password is Not Strong.... Please Enter the Password";
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\tThe Entered Password is Not Strong.... Please Enter the Password";
                 this_thread::sleep_for(chrono::milliseconds(2000));
                 goto flag_for_password;
             }
@@ -215,11 +215,11 @@ class Authentication_Registration
 
         void display_rules()
         {
-            cout << endl << " Password Must Contain: ";
-            cout << endl << " 1. Minimum 6 Letters and Maximum 15 Letters";
-            cout << endl << " 2. Must Contain atleast One Digit/Number ";
-            cout << endl << " 3. Must Contain any of the Symbols '@' , '#' , '$' , '&' ";
-            cout << endl << " 4. Must Contain atleast One Capital Letter";
+            cout << endl << " \t\t\t\t\t\t\t\t\t\t\tPassword Must Contain: ";
+            cout << endl << " \t\t\t\t\t\t\t\t\t\t\t1. Minimum 6 Letters and Maximum 15 Letters";
+            cout << endl << " \t\t\t\t\t\t\t\t\t\t\t2. Must Contain atleast One Digit/Number ";
+            cout << endl << " \t\t\t\t\t\t\t\t\t\t\t3. Must Contain any of the Symbols '@' , '#' , '$' , '&' ";
+            cout << endl << " \t\t\t\t\t\t\t\t\t\t\t4. Must Contain atleast One Capital Letter";
 
         }
 
@@ -240,22 +240,22 @@ class Vehicle_Detail
     public:
         void getValue()
         {
-            cout << endl << "Vehicle Number: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tVehicle Number: ";
             cin >> vehicle_number;
             cin.ignore();
-            cout << endl << "Vehicle Type: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tVehicle Type: ";
             cin >> vehicle_type;
             cin.ignore();
-            cout << endl << "Owners Name: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tOwners Name: ";
             cin.get(name,100);
             cin.ignore();
-            cout << endl << "Phone Number: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tPhone Number: ";
             cin >> phone_number;
             cin.ignore();
-            cout << endl << "Address: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tAddress: ";
             cin.get(address,100);
             cin.ignore();
-            cout << endl << "Amount: ";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tAmount: ";
             cin >> amount;
             cin.ignore();
         }

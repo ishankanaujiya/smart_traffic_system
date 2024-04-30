@@ -52,7 +52,9 @@ int authentication_login()
     else
     {
         cout << endl;
-        cout << endl << "LOGIN" << endl;
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tLOGIN";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************" << endl;
         login_obj.get_login_value();
 
         //Call for Friend Function
@@ -61,13 +63,13 @@ int authentication_login()
         {
             loading_page();
             system("cls");
-            cout << endl << "Entered Successfully";
+            //cout << endl << "Entered Successfully";
             switch_case_for_admin();
             
         }
         else
         {
-            cout << endl << "Wrong Password";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Password";
             this_thread::sleep_for(chrono::seconds(4));
             return 1;
         }

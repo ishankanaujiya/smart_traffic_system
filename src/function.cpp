@@ -52,7 +52,8 @@ void switch_case_for_entry()
 
         case 2:
             system("cls");
-            cout << endl << "Enter PIN Number: ";
+            cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tEnter PIN: ";
             cin >>value_to_enter_admin;
 
             if(value_to_enter_admin == 6531)
@@ -61,8 +62,13 @@ void switch_case_for_entry()
             }
             else
             {
-                cout << endl << "Wrong PIN....." << endl;
+                system("cls");
+                system("COLOR 0C");
+                cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl;
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\tWrong PIN....." << endl;
+                cout << "\t\t\t\t\t\t\t\t\t\t\t\t";
                 system("pause");
+                system("COLOR 07");
                 goto flag_for_first_switch_case;
             }
             //cout << endl << "Case 2";
@@ -83,10 +89,11 @@ void switch_case_for_entry()
 void loading_page()
 {
     system("cls");
-    cout<< endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-    cout <<"\t\t\t\t\t\t\t\t\t\t\tLoading ......";
+    cout << endl << endl << endl << endl << endl << endl<< endl << endl << endl << endl << endl << endl<< endl << endl << endl;
+    //cout<< endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
+    cout <<"\t\t\t\t\t\t\t\t\t\t\t\tLoading ......";
     cout << endl << endl;
-    cout << "\t\t\t\t\t\t\t\t\t\t\t";
+    cout << "\t\t\t\t\t\t\t\t\t\t\t\t";
     for(i=0; i<=25; i++)
     {
         system("COLOR 0B");
@@ -100,8 +107,13 @@ void switch_case_for_admin_entry()
 {
     flag_for_admin_entry:
     system("cls");
-    cout << endl << "1. Login" << endl << "2. Register" << endl << "3. Main Menu";
-    cout << endl << "Enter Your Choice: ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tADMIN";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t1. Login" << endl 
+    << "\t\t\t\t\t\t\t\t\t\t\t2. Register" << endl 
+    << "\t\t\t\t\t\t\t\t\t\t\t3. Main Menu" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter Your Choice: ";
     cin >> choice_for_admin_entry;
     switch (choice_for_admin_entry)
     {
@@ -124,7 +136,7 @@ void switch_case_for_admin_entry()
         switch_case_for_entry();
         break;
     default:
-        cout << endl << "Wrong Choice..... Please Enter Your Choice Again";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter Your Choice Again";
         this_thread::sleep_for(chrono::milliseconds(1000));
         goto flag_for_admin_entry;
         break;
@@ -135,8 +147,17 @@ void switch_case_for_admin_entry()
 void switch_case_for_traffic_police()
 {
     flag_for_traffic_police_entry:
-    cout << endl << "1. Add Vehicle Record" << endl << "2. Search Vehicle Record" << endl << "3. Helpline Numbers" << endl << "4. Police Staion Details" << endl << "5. Display Records" << endl << "6. Exit";
-    cout << endl << "Enter Your Choice: ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**********************************************";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tTRAFFIC POLICE";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**********************************************" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t1. Add Vehicle Record" 
+         << endl << "\t\t\t\t\t\t\t\t\t\t\t2. Search Vehicle Record" 
+         << endl << "\t\t\t\t\t\t\t\t\t\t\t3. Helpline Numbers" 
+         << endl << "\t\t\t\t\t\t\t\t\t\t\t4. Police Staion Details" 
+         << endl << "\t\t\t\t\t\t\t\t\t\t\t5. Display Records" 
+         << endl << "\t\t\t\t\t\t\t\t\t\t\t6. Main Menu";
+
+    cout << endl << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter Your Choice: ";
     cin >> choice_for_traffic_police_entry;
 
     switch (choice_for_traffic_police_entry)
@@ -146,8 +167,9 @@ void switch_case_for_traffic_police()
         return_value_to_check_vehicle_number = add_vehicle_record();
         if(return_value_to_check_vehicle_number == 6)
         {
-            cout << endl << "Delatils of this Vehicle Number Exists";
-            this_thread::sleep_for(chrono::seconds(4));
+            cout << endl << "Delatils of this Vehicle Number Exists"  << endl;
+            system("pause");
+            //this_thread::sleep_for(chrono::seconds(4));
             system("cls");
             goto flag_for_traffic_police_entry;
         }
@@ -200,8 +222,16 @@ void switch_case_for_traffic_police()
 void switch_case_for_admin()
 {
     flag_for_admin:
-    cout << endl << "1. Add" << endl << "2. Search" << endl << "3. Modify Record" << endl << "4. Delete Record" << endl << "5. Display" << endl << "6. Exit";
-    cout << endl << "Enter Your Choice: ";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tADMIN";
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t1. Add" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t2. Search" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t3. Modify Record" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t4. Delete Record" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t5. Display" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t6. Main Menu" << endl;
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter Your Choice: ";
     cin >> choice_for_admin;
     
     switch (choice_for_admin)
@@ -211,8 +241,10 @@ void switch_case_for_admin()
             return_value_to_check_vehicle_number = add_vehicle_record();
             if(return_value_to_check_vehicle_number == 6)
             {
-                cout << endl << "Delatils of this Vehicle Number Exists";
-                this_thread::sleep_for(chrono::seconds(4));
+                cout << endl << "\t\t\t\t\t\t\t\t\t\t\tDelatils of this Vehicle Number Exists" << endl;
+                cout << "\t\t\t\t\t\t\t\t\t\t\t";
+                system("pause");
+                //this_thread::sleep_for(chrono::seconds(4));
                 system("cls");
                 goto flag_for_admin;
             }
@@ -229,25 +261,29 @@ void switch_case_for_admin()
         case 3:
             system("cls");
             modify_vehicle_record();
-            
+            system("cls");
             goto flag_for_admin;
 
             break;
         case 4:
             system("cls");
             delete_vehicle_record();
+            system("cls");
             goto flag_for_admin;
             break;
         case 5:
             system("cls");
             display_all_records();
+            system("pause");
+            system("cls");
             goto flag_for_admin;
             break;
         case 6:
-            exit(0);
+            system("cls");
+            switch_case_for_entry();
             break;
         default:
-            cout << endl << "Wrong Choice..... Please Enter The Choice Again";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter The Choice Again";
             goto flag_for_admin;
             break;
     }

@@ -16,7 +16,7 @@ Vehicle_Detail modify_all_vehicle_record_obj[100], delete_vehicle_record_obj[100
 
 //Variables
 int return_value_for_vehicle_number_check, return_value_from_modify_vehicle_record;
-int count_for_total_number_of_vehicle_record, count_for_total_number_of_obj_to_delete_vehicle_record, count_for_total_search;
+int count_for_total_number_of_vehicle_record, count_for_total_number_of_obj_to_delete_vehicle_record, count_for_total_search, flag_for_search_record = 0;
 
 int add_vehicle_record()
 {
@@ -43,6 +43,9 @@ int add_vehicle_record()
     }
     else
     {
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************************";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tADD VEHICLE RECORD";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************************" << endl;
         add_vehicle_record_obj.getValue();
         return_value_for_vehicle_number_check = vehicle_number_check(add_vehicle_record_obj,vehicle_number_check_obj);
         if(return_value_for_vehicle_number_check == 6)
@@ -128,6 +131,7 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
         if(vehicle_number_check == map_search_for_vehicle_record_obj[i].vehicle_number)
         {
             system("cls");
+            flag_for_search_record = 0;
             cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" << setw(30) << "Amount" <<endl;
             cout << map_search_for_vehicle_record_obj[i].vehicle_number<< setw(40) 
                 << map_search_for_vehicle_record_obj[i].vehicle_type <<setw(50) 
@@ -136,8 +140,18 @@ void search_vehicle_record(Vehicle_Detail map_search_for_vehicle_record_obj[])
                 << map_search_for_vehicle_record_obj[i].address << setw(30)
                 << map_search_for_vehicle_record_obj[i].amount <<endl;
             system("pause");
+            break;
             
         }
+        else
+        {
+            flag_for_search_record = 1;
+        }
+    }
+    if(flag_for_search_record == 1)
+    {
+        cout << endl << "No Record Found"  << endl;
+        system("pause");
     }
 
 }
@@ -201,7 +215,9 @@ void display_all_vehicle_records(Vehicle_Detail map_display_all_vehicle_record[]
 {
     int i=0;
     system("cls");
-    cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" << setw(30) << "Amount" <<endl;
+    cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________________" << endl;
+    cout << "Vehicle Number"<< setw(40) << "Vehicle Type"<<setw(40) << "Owner's Name"<< setw(40) << "Phone Number" << setw(40) << "Address" << setw(30) << "Amount" << endl;
+    cout << "_____________________________________________________________________________________________________________________________________________________________________________________________________________" << endl << endl  ;
     for(i=0; i<count_for_total_number_of_vehicle_record; i++)
     {
         cout << map_display_all_vehicle_record[i].vehicle_number<< setw(40) 
@@ -320,7 +336,9 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
 
     if(flag_for_modify_vehicle_record ==1)
     {
-        cout << endl << "No Record Found";
+        cout << endl << "No Record Found" << endl;
+        system("pause");
+        system("cls");
         switch_case_for_admin();
 
     }
