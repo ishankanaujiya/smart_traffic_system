@@ -276,7 +276,7 @@ void modify_all_vehicle_record(Vehicle_Detail map_modify_all_vehicle_record[])
         {
             flag_for_modify_vehicle_record:
             system("cls");
-            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter New Details" << endl;
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter New Details" << endl << endl;
             cout << endl << "\t\t\t\t\t\t\t\t\t\t\tVehicle Number: ";
             cin >> map_vehicle_number;
             cin.ignore();
