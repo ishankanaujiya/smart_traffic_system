@@ -228,11 +228,11 @@ void switch_case_for_admin()
     cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************";
     cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\tADMIN";
     cout << endl << "\t\t\t\t\t\t\t\t\t\t\t**************************************" << endl;
-    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t1. Add" << endl 
-         << "\t\t\t\t\t\t\t\t\t\t\t2. Search" << endl 
+    cout << endl << "\t\t\t\t\t\t\t\t\t\t\t1. Add Record" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t2. Search Record" << endl 
          << "\t\t\t\t\t\t\t\t\t\t\t3. Modify Record" << endl 
          << "\t\t\t\t\t\t\t\t\t\t\t4. Delete Record" << endl 
-         << "\t\t\t\t\t\t\t\t\t\t\t5. Display" << endl 
+         << "\t\t\t\t\t\t\t\t\t\t\t5. Display Record" << endl 
          << "\t\t\t\t\t\t\t\t\t\t\t6. Main Menu" << endl;
     cout << endl << "\t\t\t\t\t\t\t\t\t\t\tEnter Your Choice: ";
     cin >> choice_for_admin;
