@@ -174,7 +174,6 @@ void switch_case_for_traffic_police()
             cout << endl << "\t\t\t\t\t\t\t\t\t\t\tDelatils of this Vehicle Number Exists"  << endl;
             cout << "\t\t\t\t\t\t\t\t\t\t\t";
             system("pause");
-            //this_thread::sleep_for(chrono::seconds(4));
             system("cls");
             goto flag_for_traffic_police_entry;
         }
