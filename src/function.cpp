@@ -140,6 +140,8 @@ void switch_case_for_admin_entry()
         break;
     default:
         cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter Your Choice Again";
+        //cout << "\t\t\t\t\t\t\t\t\t\t\t";
+        //system("pause");
         this_thread::sleep_for(chrono::milliseconds(1000));
         system("cls");
         goto flag_for_admin_entry;
@@ -218,7 +220,9 @@ void switch_case_for_traffic_police()
         break;
     
     default:
-        cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter The Choice Again";
+        cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter The Choice Again" << endl;
+        cout << "\t\t\t\t\t\t\t\t\t\t\t";
+        system("pause");
         system("cls");
         goto flag_for_traffic_police_entry;
     }
@@ -289,7 +293,9 @@ void switch_case_for_admin()
             switch_case_for_entry();
             break;
         default:
-            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter The Choice Again";
+            cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter The Choice Again" << endl;
+            cout << "\t\t\t\t\t\t\t\t\t\t\t";
+            system("pause");
             system("cls");
             goto flag_for_admin;
             break;
