@@ -140,8 +140,6 @@ void switch_case_for_admin_entry()
         break;
     default:
         cout << endl << "\t\t\t\t\t\t\t\t\t\t\tWrong Choice..... Please Enter Your Choice Again";
-        //cout << "\t\t\t\t\t\t\t\t\t\t\t";
-        //system("pause");
         this_thread::sleep_for(chrono::milliseconds(1000));
         system("cls");
         goto flag_for_admin_entry;
